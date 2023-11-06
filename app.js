@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const config = require('./config')
-const authRouter = require('./src/auth')
+const authRouter = require('./src/authentication')
 const userRouter = require('./src/Users')
-const verifyAuth = require('./src/Auth/authMiddleware')
+const verifyAuth = require('./src/authentication/authMiddleware')
 const dateFormat = require('date-format')
 const morgan = require('morgan')
 
@@ -14,7 +14,6 @@ app.use(morgan('[:time] :remote-addr :method :url :status :res[content-length] :
 
 app.use('/auth', authRouter)
 app.use('/users',verifyAuth,userRouter)
-
 
 const server = app.listen(config.PORT, () => {
     console.log('Listening on port', config.PORT);

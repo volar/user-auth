@@ -1,6 +1,5 @@
-
-
-//import the required module
+const express = require('express')
+const router = express.Router()
 
 //This get method will get the user with token
 router.get('/',(req,res)=>{
