@@ -41,14 +41,14 @@ router.post('/login',(req,res)=>{
 
         authController.loginUser({email,password},(err,result)=>{
             if(err){
-                return res.status(401).send({error:'Invalid credential', err})
+               res.status(401).send({error:'Invalid credential', err})
             }
             else {
-                res.status(200).send(result)
+                res.status(200).send({STATUS:"OK", data:result})
             }
         })
     } catch (error) {
-        return res.status(500).send({error:'Unexpected error while logging in user', error})
+        //res.status(500).send({error:'Unexpected error while logging in user'})
     }
 })
 

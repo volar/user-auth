@@ -19,7 +19,7 @@ function registerUser(userData,done){
 function loginUser({ email, password }, done) {
     userService.findUser(email, (err, userFound) => {
         if (err) {
-            done(err)
+            done('User not found')
         }
         else {
             const userVerified = authService.verifyUser({ email, password }, userFound)
