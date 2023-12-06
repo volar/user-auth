@@ -5,7 +5,7 @@ const authController = require('./authController')
 //This method post will regiater the use
 router.post('/register',(req,res)=>{
     try {
-    //retrive name, email and password from request bod
+    // retrieve name, email and password from request body
         const {name,email,password} = req.body
         if(!name || !email || !password){
             return res.status(400).send('Required fields are missing')
@@ -17,7 +17,7 @@ router.post('/register',(req,res)=>{
             password
         }
 
-        //calling authController registeruser method return the error msg or the result
+        //calling authController register user method return the error msg or the result
         authController.registerUser(userDetails,(err,result)=>{
             if(err){
                 return res.status(400).send({error:'User already exists'}, err)
